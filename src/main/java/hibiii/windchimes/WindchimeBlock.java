@@ -61,7 +61,8 @@ public class WindchimeBlock extends BlockWithEntity {
 	
 	@Override
 	public boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data) {
-		return world.getBlockEntity(pos).onSyncedBlockEvent(type, data);
+		BlockEntity entity = world.getBlockEntity(pos);
+		return entity != null && entity.onSyncedBlockEvent(type, data);
 	}
 	
 	@Override
